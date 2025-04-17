@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -72,4 +71,4 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 =======
 # Movie-app-by-me
 A Movie app with add favorites functionality 
->>>>>>> a66ca3b8456abaf6c818ca1f83e78c4178be3dfd
+
