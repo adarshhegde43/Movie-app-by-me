@@ -12,20 +12,20 @@ const App = () => {
   const [searchValue , setSearchValue] = useState('') ; 
 
 
-  const getMovieRequest = async () => {
-    const url = "http://www.omdbapi.com/?s=star wars&apikey=5638c325"; //hardcoded url currently....
-
+  const getMovieRequest = async (searchValue) => {
+    const url = `http://www.omdbapi.com/?s=${searchValue}&apikey=5638c325`; 
     const response = await fetch(url) ; 
     const responseJSON = await response.json() ; 
 
     console.log(responseJSON) ; 
-
-    setMovies(responseJSON.Search) ; 
+    if(responseJSON.Search){
+      setMovies(responseJSON.Search) ; 
+    }
   }
 
   useEffect(() => {
-    getMovieRequest() ; 
-  } , []) ; 
+    getMovieRequest(searchValue) ; 
+  } , [searchValue]) ; 
 
   return (
 
@@ -33,7 +33,7 @@ const App = () => {
 
         <div className='row d-flex align-items-center mt-4 mb-4'>
           <MovieListHeading heading = 'Movies'/>
-          <SearchBox/>
+          <SearchBox searchValue = {searchValue} setSearchValue = {setSearchValue}/>
         </div>
 
         <div className='row'>
