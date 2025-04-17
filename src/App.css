@@ -7,3 +7,33 @@ body{
   overflow-x: auto;
   flex-wrap: nowrap;
 }
+
+.image-container {
+  position: relative;
+  transition: transform 0.2s;
+  overflow: hidden; /* Prevents overlay from leaking */
+}
+
+.image-container:hover {
+  transform: scale(1.05);
+  z-index: 1; /* Ensures hovered item appears above others */
+}
+
+.image-container:hover .overlay{
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  bottom: 0; /* Stick to bottom */
+  height: 10%; /* Only cover bottom 25% of image */
+  transition: 0.5s ease;
+  opacity: 0;
+  font-size: 20px;
+  display: flex; /* Enable flexbox */
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  padding: 10px; /* Add slight padding */
+}
