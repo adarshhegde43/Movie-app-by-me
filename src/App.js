@@ -30,15 +30,22 @@ const App = () => {
     getMovieRequest(searchValue) ; 
   } , [searchValue]) ; 
 
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem('react-movie-app-favorites' , JSON.stringify(items)) ; 
+  }
+
   const addFavoriteMovie = (movie) => {
     const newFavoriteList = [...favorites , movie] ; 
     setFavorite(newFavoriteList) ; 
+    saveToLocalStorage(newFavoriteList) ; 
   }
 
   const removeFavoriteMovie = (movie) => {
     const newFavoriteList = favorites.filter((favorite) => favorite.imdbID !== movie.imdbID) ; 
     setFavorite(newFavoriteList) ; 
   }
+
+
 
   return (
 
