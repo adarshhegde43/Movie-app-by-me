@@ -15,11 +15,13 @@ body{
 }
 
 .image-container:hover {
+  cursor: pointer;
   transform: scale(1.05);
   z-index: 1; /* Ensures hovered item appears above others */
 }
 
 .image-container:hover .overlay{
+  cursor: pointer;
   opacity: 1;
 }
 
